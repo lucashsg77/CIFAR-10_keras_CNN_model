@@ -46,7 +46,7 @@ model.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = [
 
 # since we needed more images because the previous models were overfitting I'm using keras to flip and shift the image a little bit
 # so we can have more data for the training
-ImgDataGen = ImageDataGenerator(width_shift_range = 0.1, height_shift_range = 0.2, vertical_flip = True, rotation_range = 15)
+ImgDataGen = ImageDataGenerator(width_shift_range = 0.2, height_shift_range = 0.2, horizontal_flip = True, rotation_range = 20)
 it_train = ImgDataGen.flow(x_train, y_train_cat)
 steps = int(x_train.shape[0] / 64)
 
