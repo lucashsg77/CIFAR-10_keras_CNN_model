@@ -17,7 +17,7 @@ sign_image = Label(mainWindow)
 
 classes = { 
     0:'aeroplane',
-    1:'car',
+    1:'automobile',
     2:'bird',
     3:'cat',
     4:'deer',
