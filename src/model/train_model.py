@@ -57,5 +57,5 @@ history = model.fit(it_train, epochs = 55, steps_per_epoch = steps, validation_d
 evaluation = model.evaluate(x_test, y_test_cat)
 print('Final accuracy: {}'.format(evaluation[1]))
 
-model_name = "cifar_model_" + epochs + "epoch.h5"
+model_name = "cifar-10_model.h5"
 model.save(model_name)
