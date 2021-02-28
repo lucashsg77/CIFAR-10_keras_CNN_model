@@ -14,7 +14,6 @@ label = Label(mainWindow, background='#092834', font = ('arial', 15, 'bold'))
 sign_image = Label(mainWindow)
 
 #the labels to all the dataset classes
-
 classes = { 
     0:'aeroplane',
     1:'automobile',
