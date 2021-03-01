@@ -5,6 +5,7 @@ from tkinter import *
 from PIL import ImageTk, Image
 import numpy
 from keras.models import load_model
+from keras.preprocessing import image
 
 mainWindow = tk.Tk()
 mainWindow.geometry('800x600')
@@ -28,14 +29,13 @@ classes = {
 }
 
 def classify(image_path, model):
-    global label_packed
-    image = Image.open(image_path)
-    image = image.resize((32,32))
-    image = numpy.expand_dims(image, axis = 0)
-    image = numpy.array(image)
-    prediction = model.predict_classes([image])[0]
-    class_label = classes[prediction]
-    print(prediction)
+    img = image.load_img(image_path, target_size=(32,32))
+    img = image.img_to_array(img)
+    img = img.reshape((1,) + img.shape)
+    img = img/255.
+    prediction = model.predict(img)
+    class_label = classes[numpy.argmax(prediction)]
+    print(numpy.argmax(prediction))
     label.configure(foreground = '#347B98', text = class_label) 
 
 def show_classify_b(image_path, model):
